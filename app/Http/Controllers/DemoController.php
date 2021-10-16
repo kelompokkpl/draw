@@ -22,10 +22,10 @@ class DemoController extends Controller
 
     }    
 
-    public function getRecent(){
-        if(empty($_GET['category']) && empty(Session::get('demo_category_id'))){
+    public function getRecent(Request $request){
+        if(empty($request->category) && empty(Session::get('demo_category_id'))){
             $category = ['id'=>1, 'name'=>'This is Category One'];
-        } else if(empty($_GET['category']) && !empty(Session::get('demo_category_id'))){
+        } else if(empty($request->category) && !empty(Session::get('demo_category_id'))){
             if(Session::get('demo_category_id')==1){
                 $category = ['id'=>1, 'name'=>'This is Category One'];
             }
@@ -34,11 +34,11 @@ class DemoController extends Controller
             } else{
                 $category = ['id'=>3, 'name'=>"Category Three"];
             }
-        } else if(!empty($_GET['category'])){
-            if($_GET['category']==1){
+        } else if(!empty($request->category)){
+            if($request->category==1){
                 $category = ['id'=>1, 'name'=>'This is Category One'];
             }
-            else if($_GET['category']==2){
+            else if($request->category==2){
                 $category = ['id'=>2, 'name'=>"I'm Category Two"];
             } else{
                 $category = ['id'=>3, 'name'=>"Category Three"];
