@@ -57,6 +57,20 @@ function right(){
     }
 }
 
+function chooseMenu(){
+    if($("body").hasClass("show-sidebar")){ // Menu
+        let menu = $("li.menu-item.active").attr("value");
+        if(menu=="draw"){
+            $("#cont").load(menu_url+"/new");
+        } else if(menu=="recent") {
+            $("#cont").load(menu_url+"/"+menu);
+        } else{
+            $(".main-content").load(menu_url+"/"+menu);
+        }
+        $("body").removeClass("show-sidebar");
+        $(".js-menu-toggle").removeClass("active");
+    }
+}
 
 // Handle draw button
 function goToDraw(){
@@ -122,21 +136,6 @@ function fullScreen(){
         } else if (document.msExitFullscreen) {
             document.msExitFullscreen();
         }
-    }
-}
-
-function chooseMenu(){
-    if($("body").hasClass("show-sidebar")){ // Menu
-        let menu = $("li.menu-item.active").attr("value");
-        if(menu=="draw"){
-            $("#cont").load(menu_url+"/new");
-        } else if(menu=="recent") {
-            $("#cont").load(menu_url+"/"+menu);
-        } else{
-            $(".main-content").load(menu_url+"/"+menu);
-        }
-        $("body").removeClass("show-sidebar");
-        $(".js-menu-toggle").removeClass("active");
     }
 }
 
