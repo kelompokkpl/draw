@@ -351,10 +351,6 @@
 		}
 
 	    public function addSelectedParticipant(){
-	  //   	if(!CRUDBooster::isCreate() && $this->global_privilege==FALSE) {    
-			//     CRUDBooster::redirect(CRUDBooster::adminPath(),trans("crudbooster.denied_access"));
-			// }
-
 	    	$data = [];
 	    	$data['participant'] = DB::table('participant')
 	    							->leftJoin('event','event.id','=','participant.event_id')
@@ -370,9 +366,9 @@
 	    	return view('superadmin.add_selected_participant', $data);
 	    }
 
-	    public function getCategory($id){
+	    public function getCategory($id_data){
 	    	$category = DB::table('category')
-	    				->where('event_id', $id)
+	    				->where('event_id', $id_data)
 	    				->select('id', 'name')
 	    				->get();
 	    	return json_encode($category);
