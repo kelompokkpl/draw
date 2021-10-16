@@ -317,7 +317,7 @@
 				$config['id_cms_users'] = [$data->cms_users_id]; //This is an array of id users
 				CRUDBooster::sendNotification($config);
 
-				CRUDBooster::redirect($_SERVER['HTTP_REFERER'], "The payment status has been updated and event has been activated!", "info");
+				CRUDBooster::redirect(URL::previous(), "The payment status has been updated and event has been activated!", "info");
 			}
 
 			if($status == 'Rejected'){
@@ -330,7 +330,7 @@
 				$config['id_cms_users'] = [$data->cms_users_id]; //This is an array of id users
 				CRUDBooster::sendNotification($config);
 
-				CRUDBooster::redirect($_SERVER['HTTP_REFERER'], "The payment status has been updated!", "info");
+				CRUDBooster::redirect(URL::previous(), "The payment status has been updated!", "info");
 			}
 		   	
 		}
