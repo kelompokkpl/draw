@@ -86,7 +86,9 @@ class EOMailsController extends Controller
             $request['created_at'] = date('Y-m-d H:i:s');
             $insert = DB::table('email')->insert($request->all());
             
-            CRUDBooster::redirect(URL::to('eo/dashboard_event/mails'), "Yippiee! Mails has been sent! It took a while to reach the recipient.", "info");
+            if($insert){
+                CRUDBooster::redirect(URL::to('eo/dashboard_event/mails'), "Yippiee! Mails has been sent! It took a while to reach the recipient.", "info");
+            }
         }
     }
 
