@@ -15,7 +15,7 @@ function openCloseMenu() {
 function up(){
     if ($("body").hasClass("show-sidebar")){
         var index = $("li").index($(".menu-item.active"));
-        if(index == 0){
+        if(index === 0){
             index = $("li.menu-item").length;
         }
 
@@ -27,7 +27,7 @@ function up(){
 function down(){
     if ($("body").hasClass("show-sidebar")){
         var index = $("li").index($(".menu-item.active"));
-        if(index == $("li.menu-item").length-1){
+        if(index === $("li.menu-item").length-1){
             index = -1;
         }
 
