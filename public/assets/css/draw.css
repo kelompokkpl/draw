@@ -41,7 +41,7 @@ body::before {
   visibility: hidden;
   -webkit-transition: 0.3s all ease-in-out;
   -o-transition: 0.3s all ease-in-out;
-  transition: 0.3s all ease-in-out; 
+  transition: 0.3s all ease-in-out;
 }
 
 body.show-sidebar::before {
@@ -73,7 +73,7 @@ aside .toggle {
   right: 0;
   -webkit-transform: translateX(100%);
   -ms-transform: translateX(100%);
-  transform: translateX(100%); 
+  transform: translateX(100%);
 }
 
 .show-sidebar aside {
@@ -95,7 +95,7 @@ aside .side-inner {
   border-bottom: 1px solid #efefef;
 }
 
-aside .side-inner .nav-menu ul, 
+aside .side-inner .nav-menu ul,
 aside .side-inner .nav-menu ul li {
   padding: 0;
   margin: 0;
@@ -126,11 +126,11 @@ aside .side-inner .nav-menu ul li a::before {
   visibility: hidden;
   -webkit-transition: 0.3s opacity ease, 0.3s visibility ease, 0.3s width ease;
   -o-transition: 0.3s opacity ease, 0.3s visibility ease, 0.3s width ease;
-  transition: 0.3s opacity ease, 0.3s visibility ease, 0.3s width ease; 
+  transition: 0.3s opacity ease, 0.3s visibility ease, 0.3s width ease;
 }
 
-aside .side-inner .nav-menu ul li a::active, 
-aside .side-inner .nav-menu ul li a::focus, 
+aside .side-inner .nav-menu ul li a:active,
+aside .side-inner .nav-menu ul li a:focus,
 aside .side-inner .nav-menu ul li a::hover {
   outline: none;
 }
@@ -167,13 +167,7 @@ aside .side-inner .nav-menu ul li.active a::before {
   float: right;
 }
 
-.show-sidebar aside .toggle .burger::before, 
-.show-sidebar aside .toggle .burger span, 
-.show-sidebar aside .toggle .burger::after {
-  background: #fff; 
-}
-
-.burger::before, .burger span, 
+.burger:before, .burger span,
 .burger::after {
   width: 90%;
   height: 2px;
@@ -206,11 +200,11 @@ aside .side-inner .nav-menu ul li.active a::before {
 
 /* Hover */
 .burger:hover:before {
-  top: 7px; 
+  top: 7px;
 }
 
 .burger:hover:after {
-  top: 23px; 
+  top: 23px;
 }
 
 /* Click */
@@ -235,6 +229,12 @@ aside .side-inner .nav-menu ul li.active a::before {
 
 .burger::focus {
   outline: none;
+}
+
+.show-sidebar aside .toggle .burger:before,
+.show-sidebar aside .toggle .burger span,
+.show-sidebar aside .toggle .burger:after {
+  background: #fff;
 }
 
 /* Main */
@@ -284,7 +284,7 @@ h2,
 h3,
 h4,
 h5,
-h6, 
+h6,
 .bold {
   font-family: MontserratBold;
 }
