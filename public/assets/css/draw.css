@@ -117,10 +117,7 @@ aside .side-inner .nav-menu ul, aside .side-inner .nav-menu ul li {
 
 aside .side-inner .nav-menu ul li a {
     display: block;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px 30px;
     color: #fff;
     position: relative;
     -webkit-transition: .3s padding-left ease;
