@@ -69,6 +69,7 @@ function goToDraw(){
                 $("#cont").load(url+"?category="+category);
             } else{
                 if($(".swal-modal")[0]){
+                    // do nothing
                 } else{
                     let category = $("#ul-scroll li.selected").attr("value");
                     let uri = url + "?category="+category;
