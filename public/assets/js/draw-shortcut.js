@@ -1,87 +1,87 @@
 // Handle sidebar menu
 function openCloseMenu() {
-    let menu = $('.js-menu-toggle');
+    let menu = $(".js-menu-toggle");
 
-    if ($('body').hasClass('show-sidebar')) {
-        $('body').removeClass('show-sidebar');
-        menu.removeClass('active');
+    if ($("body").hasClass("show-sidebar")) {
+        $("body").removeClass("show-sidebar");
+        menu.removeClass("active");
     } else {
-        $('body').addClass('show-sidebar'); 
-        menu.addClass('active');
+        $("body").addClass("show-sidebar"); 
+        menu.addClass("active");
     }
 }
 
 // Handle direction of menu
 function up(){
-    if ($('body').hasClass('show-sidebar')){
-        var index = $('li').index($('.menu-item.active'))
+    if ($("body").hasClass("show-sidebar")){
+        var index = $("li").index($(".menu-item.active"))
         if(index == 0){
-            index = $('li.menu-item').length
+            index = $("li.menu-item").length
         }
 
-        $('body').find('.menu-item.active').removeClass('active')
-        $('li.menu-item').eq(index-1).addClass('active')
+        $("body").find(".menu-item.active").removeClass("active")
+        $("li.menu-item").eq(index-1).addClass("active")
     }  
 }
 
 function down(){
-    if ($('body').hasClass('show-sidebar')){
-        var index = $('li').index($('.menu-item.active'))
-        if(index == $('li.menu-item').length-1){
+    if ($("body").hasClass("show-sidebar")){
+        var index = $("li").index($(".menu-item.active"))
+        if(index == $("li.menu-item").length-1){
             index = -1
         }
 
-        $('body').find('.menu-item.active').removeClass('active')
-        $('li.menu-item').eq(index+1).addClass('active')
+        $("body").find(".menu-item.active").removeClass("active")
+        $("li.menu-item").eq(index+1).addClass("active")
     } else{
          // Scrollbar category
-        if($('#ul-scroll')[0]){
-            $('#ul-scroll li.selected').focus();
+        if($("#ul-scroll")[0]){
+            $("#ul-scroll li.selected").focus();
         }
-        // console.log('masuk')
-        if($('#category_select')[0]){
-            $('#category_select').focus();
+
+        if($("#category_select")[0]){
+            $("#category_select").focus();
         }
     }  
 }
 
 function left(){
-    if($('#carouselExampleControls')[0]){
-        $('#carouselExampleControls').carousel('prev');
+    if($("#carouselExampleControls")[0]){
+        $("#carouselExampleControls").carousel("prev");
     }
 }
 
 function right(){
-    if($('#carouselExampleControls')[0]){
-        $('#carouselExampleControls').carousel('next');
+    if($("#carouselExampleControls")[0]){
+        $("#carouselExampleControls").carousel("next");
     }
 }
 
 
 // Handle draw button
 function goToDraw(){
-    if ($('body').hasClass('show-sidebar')){
+    if ($("body").hasClass("show-sidebar")){
         chooseMenu();
     } else{
-        if ($('.draw-btn')[0]) {
-            if($('#redraw')[0]){
-                let category = $('#redraw').attr('value');
-                $('#cont').load(url+'?category='+category);
+        if ($(".draw-btn")[0]) {
+            if($("#redraw")[0]){
+                let category = $("#redraw").attr("value");
+                $("#cont").load(url+"?category="+category);
             } else{
-                if($('.swal-modal')[0]){
+                if($(".swal-modal")[0]){
                 } else{
-                    let category = $('#ul-scroll li.selected').attr('value');
-                    let uri = url + '?category='+category;
-                    $('#cont').load(uri);
+                    let category = $("#ul-scroll li.selected").attr("value");
+                    let uri = url + "?category="+category;
+                    $("#cont").load(uri);
                 }
             }
-        } else if ($('.draw')[0]){
-            $('#cont').load(drawing_url);
+        } else if ($(".draw")[0]){
+            $("#cont").load(drawing_url);
         } else{
-            if($('#ul-scroll')[0]){
-                $('#cont').load(url);
+            if($("#ul-scroll")[0]){
+                $("#cont").load(url);
             } else{
-                $('#cont').load(winner_url);   
+                $("#cont").load(winner_url);   
                 clearInterval(showEven);
                 clearInterval(showOdd);
                 clearInterval(hideOdd);
@@ -93,8 +93,8 @@ function goToDraw(){
 
 function doBounce(element, times, distance, speed) {
     for(i = 0; i < times; i++) {
-        element.animate({marginTop: '-='+distance},speed)
-            .animate({marginTop: '+='+distance},speed);
+        element.animate({marginTop: "-="+distance},speed)
+            .animate({marginTop: "+="+distance},speed);
     }        
 }
 
@@ -125,55 +125,54 @@ function fullScreen(){
 }
 
 function chooseMenu(){
-    if($('body').hasClass('show-sidebar')){ // Menu
-        let menu = $('li.menu-item.active').attr('value');
-        if(menu=='draw'){
-            $('#cont').load(menu_url+'/new');
-        } else if(menu=='recent') {
-            $('#cont').load(menu_url+'/'+menu);
+    if($("body").hasClass("show-sidebar")){ // Menu
+        let menu = $("li.menu-item.active").attr("value");
+        if(menu=="draw"){
+            $("#cont").load(menu_url+"/new");
+        } else if(menu=="recent") {
+            $("#cont").load(menu_url+"/"+menu);
         } else{
-            $('.main-content').load(menu_url+'/'+menu);
+            $(".main-content").load(menu_url+"/"+menu);
         }
-        $('body').removeClass('show-sidebar');
-        $('.js-menu-toggle').removeClass('active');
+        $("body").removeClass("show-sidebar");
+        $(".js-menu-toggle").removeClass("active");
     }
 }
 
 function goToNew(){
-    $('#cont').load(menu_url+'/new');
-    $('body').removeClass('show-sidebar');
-    $('.js-menu-toggle').removeClass('active');
+    $("#cont").load(menu_url+"/new");
+    $("body").removeClass("show-sidebar");
+    $(".js-menu-toggle").removeClass("active");
 }
 
 function goToRecent(){
-    $('#cont').load(menu_url+'/recent');
-    $('body').removeClass('show-sidebar');
-    $('.js-menu-toggle').removeClass('active');
+    $("#cont").load(menu_url+"/recent");
+    $("body").removeClass("show-sidebar");
+    $(".js-menu-toggle").removeClass("active");
 }
 
 function goToHistory(){
     $("#loading").fadeIn("slow");
-    $('body').removeClass('show-sidebar');
-    $('.js-menu-toggle').removeClass('active');
-    $('#cont').load(menu_url+'/history');
+    $("body").removeClass("show-sidebar");
+    $(".js-menu-toggle").removeClass("active");
+    $("#cont").load(menu_url+"/history");
 }
 
 // Bind
 Mousetrap.bind({
-    'm': openCloseMenu,
-    'M' : openCloseMenu,
-    'enter' : goToDraw,
-    'up' : up,
-    'right' : right,
-    'down': down,
-    'left' : left,
-    'f' : fullScreen,
-    'F' : fullScreen,
-    'alt+n': goToNew,
-    'alt+N': goToNew,
-    'alt+R': goToRecent,
-    'alt+r': goToRecent,
-    'alt+H': goToHistory,
-    'alt+h': goToHistory,
-
+    "m": openCloseMenu,
+    "M" : openCloseMenu,
+    "enter" : goToDraw,
+    "up" : up,
+    "right" : right,
+    "down": down,
+    "left" : left,
+    "f" : fullScreen,
+    "F" : fullScreen,
+    "alt+n": goToNew,
+    "alt+N": goToNew,
+    "alt+R": goToRecent,
+    "alt+r": goToRecent,
+    "alt+H": goToHistory,
+    "alt+h": goToHistory,
 });
