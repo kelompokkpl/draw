@@ -76,7 +76,7 @@
 }
 
 .colorpicker input {
-	background-color: transparent;
+  background-color: transparent;
 	border: 1px solid transparent;
 	position: absolute;
 	font-size: 10px;
