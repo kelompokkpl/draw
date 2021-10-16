@@ -5,12 +5,12 @@ var hideOdd;
 
 function randomParticipant(id) {
 	let random = Math.floor(Math.random() * countParticipant);
-	let show = participant[random].name + '<br><span class="text-lato-thin">' + participant[random].participant_id + '</span>';
+	let show = participant[random].name + "<br><span class="text-lato-thin">" + participant[random].participant_id + "</span>";
  	$("#part"+id).html(show);
 }
 
 function hide(id){
-	$("#part"+id).html(' ');
+	$("#part"+id).html(" ");
 }
 
 function start(){
@@ -28,7 +28,7 @@ function start(){
 			} 
 
 		}
-	}, 400)
+	}, 400);
 	hideEven = setInterval(function(){
 		let j;
 		for (let i = 0; i < countParticipant; i++) {
@@ -42,7 +42,7 @@ function start(){
 				hide(i);
 			} 		
 		}
-	}, 800)
+	}, 800);
 
 	hideOdd = setInterval(function(){
 		let j;
@@ -57,7 +57,7 @@ function start(){
 				hide(i);
 			}
 		}
-	}, 400)
+	}, 400);
 	showOdd = setInterval(function(){
 		let j;
 		for (let i = 0; i < countParticipant; i++) {
@@ -71,24 +71,22 @@ function start(){
 				hide(i);
 			}
 		}
-	}, 800)
+	}, 800);
 }
 
 function stop(){
 	for (let i = 0; i < countParticipant; i++) {
-		$("#part"+i).html(' ');
+		$("#part"+i).html(" ");
 	}
 }
 
 // Bind
 Mousetrap.bind({
-    'enter': stop,
+    "enter": stop,
 });
 
 $(function() {
-	if($('#drawing')[0]){
+	if($("#drawing")[0]){
 		start();
-	} else{
-		console.log('not found')
-	}
+	} 
 });
