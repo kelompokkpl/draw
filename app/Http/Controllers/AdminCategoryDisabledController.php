@@ -301,6 +301,7 @@
 	    */
 	    public function hook_after_edit($id) {
 	        //Your code here 
+	        $id=0;
 
 	    }
 
