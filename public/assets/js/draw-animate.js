@@ -17,13 +17,13 @@ function start(){
 	showEven = setInterval(function(){
 		let j;
 		for (let i = 0; i < countParticipant; i++) {
-			if(i%4==0){
+			if(i%4===0){
 				j = j+1;
 			}
-			if(i%2==0 && j%2==1){
+			if(i%2===-0 && j%2===1){
 				hide(i);
 			} 
-			if(i%2!=0 && j%2==1){
+			if(i%2!==0 && j%2===1){
 				randomParticipant(i);
 			} 
 
@@ -32,13 +32,13 @@ function start(){
 	hideEven = setInterval(function(){
 		let j;
 		for (let i = 0; i < countParticipant; i++) {
-			if(i%4==0){
+			if(i%4===0){
 				j = j+1;
 			}
-			if(i%2==0 && j%2==1){
+			if(i%2===0 && j%2===1){
 				randomParticipant(i);
 			} 
-			if(i%2!=0 && j%2==1){
+			if(i%2!==0 && j%2===1){
 				hide(i);
 			} 		
 		}
@@ -47,13 +47,13 @@ function start(){
 	hideOdd = setInterval(function(){
 		let j;
 		for (let i = 0; i < countParticipant; i++) {
-			if(i%4==0){
+			if(i%4===0){
 				j = j+1;
 			}
-			if(i%2==0 && j%2!=1){
+			if(i%2===0 && j%2!==1){
 				randomParticipant(i);
 			}
-			if(i%2!=0 && j%2!=1){
+			if(i%2!==0 && j%2!==1){
 				hide(i);
 			}
 		}
@@ -61,13 +61,13 @@ function start(){
 	showOdd = setInterval(function(){
 		let j;
 		for (let i = 0; i < countParticipant; i++) {
-			if(i%4==0){
+			if(i%4===0){
 				j = j+1;
 			}
-			if(i%2!=0 && j%2!=1){
+			if(i%2!==0 && j%2!==1){
 				randomParticipant(i);
 			}
-			if(i%2==0 && j%2!=1){
+			if(i%2===0 && j%2!==1){
 				hide(i);
 			}
 		}
