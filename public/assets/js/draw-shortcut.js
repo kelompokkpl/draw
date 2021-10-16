@@ -14,25 +14,25 @@ function openCloseMenu() {
 // Handle direction of menu
 function up(){
     if ($("body").hasClass("show-sidebar")){
-        var index = $("li").index($(".menu-item.active"))
+        var index = $("li").index($(".menu-item.active"));
         if(index == 0){
-            index = $("li.menu-item").length
+            index = $("li.menu-item").length;
         }
 
-        $("body").find(".menu-item.active").removeClass("active")
-        $("li.menu-item").eq(index-1).addClass("active")
+        $("body").find(".menu-item.active").removeClass("active");
+        $("li.menu-item").eq(index-1).addClass("active");
     }  
 }
 
 function down(){
     if ($("body").hasClass("show-sidebar")){
-        var index = $("li").index($(".menu-item.active"))
+        var index = $("li").index($(".menu-item.active"));
         if(index == $("li.menu-item").length-1){
-            index = -1
+            index = -1;
         }
 
-        $("body").find(".menu-item.active").removeClass("active")
-        $("li.menu-item").eq(index+1).addClass("active")
+        $("body").find(".menu-item.active").removeClass("active");
+        $("li.menu-item").eq(index+1).addClass("active");
     } else{
          // Scrollbar category
         if($("#ul-scroll")[0]){
