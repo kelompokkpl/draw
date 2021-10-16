@@ -18,11 +18,11 @@ class EOEventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $data['page_title'] = 'EO Panel: Event';
 
-        if(empty($_GET['held'])){
+        if(empty($request->held)){
             $data['event'] = DB::table('event')
                 ->leftJoin('cms_users', 'event.cms_users_id', '=', 'cms_users.id')
                 ->select('event.*', 'cms_users.name as user_name')
@@ -30,7 +30,7 @@ class EOEventController extends Controller
                 ->whereNull('deleted_at')
                 ->get();
         } else{
-            if($_GET['held']=='past'){
+            if($request->held=='past'){
                 $data['event'] = DB::table('event')
                     ->leftJoin('cms_users', 'event.cms_users_id', '=', 'cms_users.id')
                     ->select('event.*', 'cms_users.name as user_name')
@@ -38,7 +38,7 @@ class EOEventController extends Controller
                     ->where('date_end', '<', date('Y-m-d'))
                     ->whereNull('deleted_at')
                     ->get();
-            } elseif($_GET['held']=='upcoming'){
+            } elseif($request->held=='upcoming'){
                 $data['event'] = DB::table('event')
                     ->leftJoin('cms_users', 'event.cms_users_id', '=', 'cms_users.id')
                     ->select('event.*', 'cms_users.name as user_name')
@@ -186,12 +186,6 @@ class EOEventController extends Controller
                 DB::table('event')->where('id', $id)->update($request->all());
             }
         } else {
-            // $validated = $request->validate([
-            //     'background_new_draw' => 'mimes:jpg,jpeg,png,bmp',
-            //     'background_recent_draw' => 'mimes:jpg,jpeg,png,bmp',
-            //     'background_draw_history' => 'mimes:jpg,jpeg,png,bmp', 
-            //     'button_image' => 'mimes:jpg,jpeg,png,bmp'
-            // ]);
 
             // if($validated){
                 $bg_path = 'assets/uploads/background';
