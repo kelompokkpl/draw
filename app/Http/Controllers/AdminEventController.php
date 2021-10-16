@@ -251,7 +251,9 @@
 			}
 		   
 			//This will redirect back and gives a message
-			CRUDBooster::redirect($_SERVER['HTTP_REFERER'],"The event status has been updated !","info");
+			if(isset($_SERVER['HTTP_REFERER'])){
+				CRUDBooster::redirect($_SERVER['HTTP_REFERER'],"The event status has been updated !","info");
+			}
 		}
 
 	    /*
