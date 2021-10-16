@@ -129,9 +129,9 @@ aside .side-inner .nav-menu ul li a::before {
   transition: 0.3s opacity ease, 0.3s visibility ease, 0.3s width ease;
 }
 
+aside .side-inner .nav-menu ul li a::hover,
 aside .side-inner .nav-menu ul li a:active,
-aside .side-inner .nav-menu ul li a:focus,
-aside .side-inner .nav-menu ul li a::hover {
+aside .side-inner .nav-menu ul li a:focus {
   outline: none;
 }
 
@@ -167,7 +167,7 @@ aside .side-inner .nav-menu ul li.active a::before {
   float: right;
 }
 
-.burger:before, .burger span,
+.burger::before, .burger span,
 .burger::after {
   width: 90%;
   height: 2px;
@@ -231,9 +231,9 @@ aside .side-inner .nav-menu ul li.active a::before {
   outline: none;
 }
 
-.show-sidebar aside .toggle .burger:before,
+.show-sidebar aside .toggle .burger::before,
 .show-sidebar aside .toggle .burger span,
-.show-sidebar aside .toggle .burger:after {
+.show-sidebar aside .toggle .burger::after {
   background: #fff;
 }
 
