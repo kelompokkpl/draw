@@ -62,7 +62,7 @@
                             <p>
                                 {{ CRUDBooster::myName() }}
                                 <small>{{ CRUDBooster::myPrivilegeName() }}</small>
-                                <small><em><?=date('d F Y')?></em></small>
+                                <small><em>{!!date('d F Y')!!}</em></small>
                             </p>
                         </li>
 
