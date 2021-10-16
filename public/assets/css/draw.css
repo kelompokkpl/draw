@@ -1,4 +1,4 @@
-/*Font*/
+/* Font */
 @font-face{
 	font-family: Lato;
 	src: url("../font/Lato-Regular.ttf");
@@ -14,7 +14,7 @@
 	src: url("../font/Montserrat-Bold.otf");
 }
 
-/*Content*/
+/* Content */
 html{
 	height: 100%;
 }
@@ -51,7 +51,7 @@ body.show-sidebar:before {
     visibility: visible; 
 }
 
-/*Sidebar*/
+/* Sidebar */
 aside {
 	height: 100vh;
 	min-height: 580px; 
@@ -229,14 +229,12 @@ aside .side-inner .nav-menu ul li.active a:before {
   	-webkit-transform: rotate(45deg);
   	-moz-transform: rotate(45deg);
   	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=5);
-  /*for IE*/ 
 }
 
 .burger.active:after {
   	-webkit-transform: rotate(-45deg);
   	-moz-transform: rotate(-45deg);
   	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=-5);
-  /*for IE*/ 
 }
 
 .burger:focus {
@@ -244,7 +242,7 @@ aside .side-inner .nav-menu ul li.active a:before {
 }
 
 
-/*Main*/
+/* Main */
 .main-content{
 	height: 100%;
 	position: relative;
@@ -260,7 +258,7 @@ aside .side-inner .nav-menu ul li.active a:before {
 	padding: calc(5%) calc(15%);
 }
 
-/*Line title*/
+/* Line title */
 .line-title{
 	border:none;
 	height: 1rem;
@@ -269,10 +267,8 @@ aside .side-inner .nav-menu ul li.active a:before {
 	background-repeat: no-repeat;
 }
 
-/*Button*/
+/* Button */
 .draw{
-	/*background-image: url("../image/img_draw_button.png");
-	background-size: cover;*/
 	width: 30%;
 	height: 60%;
 	cursor: pointer;
@@ -288,13 +284,13 @@ aside .side-inner .nav-menu ul li.active a:before {
 }
 
 
-/*Text*/
+/* Text */
 h1, h2, h3, h4, h5, h6, 
 .bold{
 	font-family: MontserratBold!important;
 }
 
-/*Aspect Ratio*/
+/* Aspect Ratio */
 @media screen and (max-aspect-ratio: 16/9){
     .draw{
     	width: 35%;
