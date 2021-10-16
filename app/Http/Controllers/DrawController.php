@@ -38,11 +38,11 @@ class DrawController extends Controller
 
     }    
 
-    public function getRecent(){
-        if(empty($_GET['category'])){
+    public function getRecent(Request $request){
+        if(empty($request->category)){
             $category = DB::table('category')->where('id', Session::get('category_id'))->first();
         } else{
-            $category = DB::table('category')->where('id', $_GET['category'])->first();
+            $category = DB::table('category')->where('id', $request->category)->first();
         }
         Session::put('category_id', $category->id);
         Session::put('category_name', ucfirst($category->name));
