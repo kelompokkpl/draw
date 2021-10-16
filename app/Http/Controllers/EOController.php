@@ -74,7 +74,6 @@ class EOController extends Controller
 
         $data['date'] = array_reverse($date);
         
-        $series = array();
         $k=0;
         foreach ($event as $row) {
             for($i = 0; $i < 30; $i++){
@@ -84,7 +83,6 @@ class EOController extends Controller
                     $y = 0;
                 }
                 if(!empty($perLog[$row->id][$data['date'][$i]])){
-                    // echo $row->id.'.'.$data['date'][$i].'<br>';
                     $drilldown[$k]['name'] = $row->name.'<br>'.$data['date'][$i];
                     $drilldown[$k]['type'] = 'column';
                     $drilldown[$k]['id'] = $row->id.$data['date'][$i];
