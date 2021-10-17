@@ -139,13 +139,13 @@ class EOEventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id_data)
     {
-        if(!DB::table('event')->where('cms_users_id',Session::get('admin_id'))->where('id', $id)->exists()){
-            CRUDBooster::redirect(URL::to('eo/event'), "Hey! Event with id ".$id." is doesn't exist!","warning");
+        if(!DB::table('event')->where('cms_users_id',Session::get('admin_id'))->where('id', $id_data)->exists()){
+            CRUDBooster::redirect(URL::to('eo/event'), "Hey! Event with id ".$id_data." is doesn't exist!","warning");
         }
         $data['page_title'] = 'EO Panel: Detail Event';
-        $data['event'] = DB::table('event')->where('id', $id)->first();
+        $data['event'] = DB::table('event')->where('id', $id_data)->first();
         return view('event_organizer.detail_event', $data);
     }
 
@@ -155,14 +155,14 @@ class EOEventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id_data)
     {
-        if(!DB::table('event')->where('cms_users_id',Session::get('admin_id'))->where('id', $id)->exists()){
-            CRUDBooster::redirect(URL::to('eo/event'), "Hey! Event with id ".$id." is doesn't exist!","warning");
+        if(!DB::table('event')->where('cms_users_id',Session::get('admin_id'))->where('id', $id_data)->exists()){
+            CRUDBooster::redirect(URL::to('eo/event'), "Hey! Event with id ".$id_data." is doesn't exist!","warning");
         }
 
         $data['page_title'] = 'EO Panel: Edit Event';
-        $data['event'] = DB::table('event')->where('id', $id)->first();
+        $data['event'] = DB::table('event')->where('id', $id_data)->first();
         return view('event_organizer.edit_event', $data);
     }
 
@@ -173,7 +173,7 @@ class EOEventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_data)
     {
         if(Str::contains(URL::previous(), 'edit')){
             $validatedData = $request->validate([
@@ -183,7 +183,7 @@ class EOEventController extends Controller
 
             if($validatedData){
                 unset($request['_token'], $request['_method']);
-                DB::table('event')->where('id', $id)->update($request->all());
+                DB::table('event')->where('id', $id_data)->update($request->all());
             }
         } else {
 
@@ -235,7 +235,7 @@ class EOEventController extends Controller
                 $data['button_border_color'] = $request->input('button_border_color');
                 $data['button_shadow_color'] = $request->input('button_shadow_color');
 
-                DB::table('event')->where('id', $id)->update($data);
+                DB::table('event')->where('id', $id_data)->update($data);
             // }
         }
         if(Str::contains(URL::previous(), 'dashboard_event/preferences')){
@@ -250,24 +250,24 @@ class EOEventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id_data)
     {
-        if(!DB::table('event')->where('cms_users_id',Session::get('admin_id'))->where('id', $id)->exists()){
-            CRUDBooster::redirect(URL::to('eo/event'), "Hey! Event with id ".$id." is doesn't exist!","warning");
+        if(!DB::table('event')->where('cms_users_id',Session::get('admin_id'))->where('id', $id_data)->exists()){
+            CRUDBooster::redirect(URL::to('eo/event'), "Hey! Event with id ".$id_data." is doesn't exist!","warning");
         }
-        DB::table('event')->where('id', $id)->update(['deleted_at'=>date('Y-m-d H:i:s')]);
-        DB::table('payment')->where('event_id', $id)->update(['deleted_at'=>date('Y-m-d H:i:s')]);
+        DB::table('event')->where('id', $id_data)->update(['deleted_at'=>date('Y-m-d H:i:s')]);
+        DB::table('payment')->where('event_id', $id_data)->update(['deleted_at'=>date('Y-m-d H:i:s')]);
         CRUDBooster::redirect(URL::to('eo/event'),"Good job! The event success deleted!","info");
     }
 
-    public function dashboard($id)
+    public function dashboard($id_data)
     {
-        if(!DB::table('event')->where('id', $id)->where('cms_users_id',Session::get('admin_id'))->exists()){
-            CRUDBooster::redirect(URL::to('eo/event'), "Hey! Event with id ".$id." is doesn't exist or not active","warning");
+        if(!DB::table('event')->where('id', $id_data)->where('cms_users_id',Session::get('admin_id'))->exists()){
+            CRUDBooster::redirect(URL::to('eo/event'), "Hey! Event with id ".$id_data." is doesn't exist or not active","warning");
         }
 
-        $data['event'] = DB::table('event')->where('id', $id)->first();
-        $data['participant'] = DB::table('participant')->where('event_id', $id)->get();
+        $data['event'] = DB::table('event')->where('id', $id_data)->first();
+        $data['participant'] = DB::table('participant')->where('event_id', $id_data)->get();
         $data['page_title'] = 'Dashboard '.$data['event']->name;
 
         $data['past'] = DB::table('event')
@@ -275,27 +275,27 @@ class EOEventController extends Controller
                             ->where('date_end', '>', date('Y-m-d'))
                             ->count();
         $data['category'] = DB::table('category')
-                            ->where('event_id', $id)
+                            ->where('event_id', $id_data)
                             ->count();
         $can_draw = DB::table('category')
-                            ->where('event_id', $id)
+                            ->where('event_id', $id_data)
                             ->where('is_draw', 0)
                             ->count();
         $data['participant'] = DB::table('participant')
-                            ->where('event_id', $id)
+                            ->where('event_id', $id_data)
                             ->count();
         $data['winner'] = DB::table('category')
-                            ->where('category.event_id', $id)
+                            ->where('category.event_id', $id_data)
                             ->sum('total_winner');
         $data['cat'] = DB::table('category')
                             ->leftJoin('event', 'event.id', 'category.event_id')
-                            ->where('category.event_id', $id)
+                            ->where('category.event_id', $id_data)
                             ->select('category.name', 'category.id')
                             ->orderBy('category.name')
                             ->get();
         $data['win'] = DB::table('winner')
                             ->leftJoin('category', 'category.id', 'winner.category_id')
-                            ->where('category.event_id', $id)
+                            ->where('category.event_id', $id_data)
                             ->leftJoin('participant', 'participant.id', 'winner.participant_id')
                             ->select('category.id as category_id', 'participant.participant_id as id', 'participant.name', 'participant.email')
                             ->orderBy('category_id')
@@ -303,12 +303,12 @@ class EOEventController extends Controller
         $data['winners'] = DB::table('winner')
                             ->leftJoin('category', 'category.id', 'winner.category_id')
                             ->leftJoin('participant', 'participant.id', 'winner.participant_id')
-                            ->where('category.event_id', $id)
+                            ->where('category.event_id', $id_data)
                             ->select('participant.name as name', DB::raw('COUNT(*) as weight'))
                             ->groupBy('participant.name')
                             ->get();
                     
-        Session::put('event_id', $id);
+        Session::put('event_id', $id_data);
         Session::put('event_name', $data['event']->name);
         Session::put('event_active', $data['event']->status);
         Session::put('can_draw', $can_draw);
