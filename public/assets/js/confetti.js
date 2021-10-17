@@ -1,14 +1,16 @@
-maxParticleCount=80;
-particleSpeed=1;
-startConfetti;
-stopConfetti;
-toggleConfetti;
-removeConfetti;
 (function(){
+	var maxParticleCount=80;
+	var particleSpeed=1;
+	var startConfetti;
+	var stopConfetti;
+	var toggleConfetti;
+	var removeConfetti;
+
 	startConfetti=startConfettiInner;
 	stopConfetti=stopConfettiInner;
 	toggleConfetti=toggleConfettiInner;
 	removeConfetti=removeConfettiInner;
+	
 	var colors=["DodgerBlue","OliveDrab","Gold","Pink","SlateBlue","LightBlue","Violet","PaleGreen","SteelBlue","SandyBrown","Chocolate","Crimson"]
 	var streamingConfetti=false;
 	var animationTimer=null;
