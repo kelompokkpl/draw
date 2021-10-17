@@ -60,9 +60,9 @@ function right(){
 function chooseMenu(){
     if($("body").hasClass("show-sidebar")){ // Menu
         let menu = $("li.menu-item.active").attr("value");
-        if(menu=="draw"){
+        if(menu==="draw"){
             $("#cont").load(menu_url+"/new");
-        } else if(menu=="recent") {
+        } else if(menu==="recent") {
             $("#cont").load(menu_url+"/"+menu);
         } else{
             $(".main-content").load(menu_url+"/"+menu);
@@ -107,7 +107,7 @@ function goToDraw(){
 }
 
 function doBounce(element, times, distance, speed) {
-    for(i = 0; i < times; i++) {
+    for(let i = 0; i < times; i++) {
         element.animate({marginTop: "-="+distance},speed)
             .animate({marginTop: "+="+distance},speed);
     }        

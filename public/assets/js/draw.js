@@ -54,7 +54,7 @@ $(document).ready(function() {
             itemsScrolled = 0;
             window.CP.exitedLoop(1);
         }
-    })
+    });
 });
 
 

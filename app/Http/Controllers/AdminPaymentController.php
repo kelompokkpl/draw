@@ -243,7 +243,7 @@
 			return view('superadmin.add_payment',$data);
 		}
 
-		public function getEdit($id) {
+		public function getEdit($id_data) {
 			//Create an Auth
 			if(!CRUDBooster::isUpdate() && $this->global_privilege==FALSE || $this->button_edit==FALSE) {    
 			    CRUDBooster::redirect(CRUDBooster::adminPath(),trans("crudbooster.denied_access"));
@@ -254,7 +254,7 @@
 			$data['payment'] = DB::table('payment')
 							->leftJoin('event', 'event.id', '=', 'payment.event_id')
 							->select('payment.*', 'event.name as event_name')
-							->where('payment.id',$id)
+							->where('payment.id',$id_data)
 							->first();
 			$data['event'] = DB::table('event')
 							->orderby('name','asc')
@@ -303,9 +303,9 @@
 	    	}
 	    }
 
-	    public function getSetStatus($status,$id) {
-			DB::table('payment')->where('id',$id)->update(['status'=>$status]);
-			$event = DB::table('payment')->where('id',$id)->select('event_id')->first();
+	    public function getSetStatus($status,$id_data) {
+			DB::table('payment')->where('id',$id_data)->update(['status'=>$status]);
+			$event = DB::table('payment')->where('id',$id_data)->select('event_id')->first();
 
 			if($status == 'Confirmed'){
 				DB::table('event')->where('id',$event->event_id)->update(['payment_status'=>'Paid', 'status'=>'Active']);
@@ -335,8 +335,8 @@
 		   	
 		}
 
-		public function printInvoice($id){
-	        $data['payment'] = DB::table('payment')->where('id', $id)->orderBy('created_at','desc')->get();
+		public function printInvoice($id_data){
+	        $data['payment'] = DB::table('payment')->where('id', $id_data)->orderBy('created_at','desc')->get();
 	        $data['event'] = DB::table('event')
                             ->leftJoin('cms_users', 'event.cms_users_id', '=', 'cms_users.id')
                             ->select('event.*', 'cms_users.name as users_name', 'cms_users.email')
@@ -447,7 +447,7 @@
 	    | @id       = current id 
 	    | 
 	    */
-	    public function hook_after_edit($id) {
+	    public function hook_after_edit($id_data) {
 	        //Your code here 
 
 	    }
@@ -459,10 +459,10 @@
 	    | @id       = current id 
 	    | 
 	    */
-	    public function hook_before_delete($id) {
+	    public function hook_before_delete($id_data) {
 	        $payment = DB::table('payment')
 	        		   ->select('event_id', 'status')
-	        		   ->where('id', $id)
+	        		   ->where('id', $id_data)
 	        		   ->first();
 	        if($payment->status=='Confirmed'){
 	        	$data['status'] = 'Non Active';
@@ -478,7 +478,7 @@
 	    | @id       = current id 
 	    | 
 	    */
-	    public function hook_after_delete($id) {
+	    public function hook_after_delete($id_data) {
 	        //Your code here
 
 	    }

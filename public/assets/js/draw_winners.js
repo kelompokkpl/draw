@@ -1,12 +1,12 @@
 new Vue({
-	el: '#root',
+	el: "#root",
 	data: {
-		selected_category: '',
+		selected_category: "",
 		winners: [],
 		winner: {
-			id: '',
-			participant_id: '',
-			name: ''
+			id: "",
+			participant_id: "",
+			name: ""
 		},
 	},
 	created() { 

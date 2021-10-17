@@ -271,7 +271,7 @@
 	    | @id = last insert id
 	    | 
 	    */
-	    public function hook_after_add($id) {        
+	    public function hook_after_add($id_data) {        
 	        //Your code here
 
 	    }
@@ -296,7 +296,7 @@
 	    | @id       = current id 
 	    | 
 	    */
-	    public function hook_after_edit($id) {
+	    public function hook_after_edit($id_data) {
 	        //Your code here 
 
 	    }
@@ -308,7 +308,7 @@
 	    | @id       = current id 
 	    | 
 	    */
-	    public function hook_before_delete($id) {
+	    public function hook_before_delete($id_data) {
 	        //Your code here
 
 	    }
@@ -320,7 +320,7 @@
 	    | @id       = current id 
 	    | 
 	    */
-	    public function hook_after_delete($id) {
+	    public function hook_after_delete($id_data) {
 	        //Your code here
 
 	    }
@@ -329,13 +329,13 @@
 
 	    //By the way, you can still create your own method in here... :) 
 
-	    public function getDetail($id) {		  
+	    public function getDetail($id_data) {		  
 		  $data = [];
 		  $data['page_title'] = 'Draw: Detail Winner';
 		  $data['row'] = DB::table('winner')
 		  	->leftJoin('category', 'category.id', 'winner.category_id')
 		  	->leftJoin('participant', 'participant.id', 'winner.participant_id')
-		  	->where('winner.id',$id)
+		  	->where('winner.id',$id_data)
 		  	->select('category.name as category_name', 'participant.name as participant_name', 'category.event_id as event_id')
 		  	->first();
 

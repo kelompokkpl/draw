@@ -11,7 +11,7 @@
 	toggleConfetti=toggleConfettiInner;
 	removeConfetti=removeConfettiInner;
 
-	var colors=["DodgerBlue","OliveDrab","Gold","Pink","SlateBlue","LightBlue","Violet","PaleGreen","SteelBlue","SandyBrown","Chocolate","Crimson"]
+	var colors=["DodgerBlue","OliveDrab","Gold","Pink","SlateBlue","LightBlue","Violet","PaleGreen","SteelBlue","SandyBrown","Chocolate","Crimson"];
 	var streamingConfetti=false;
 	var animationTimer=null;
 	var particles=[];
@@ -45,7 +45,7 @@
 			canvas.width=width;
 			canvas.height=height;
 			window.addEventListener("resize",function(){
-				canvas.width='window.innerWidth';
+				canvas.width="window.innerWidth";
 				canvas.height=window.innerHeight;
 			},true);
 		}
@@ -70,10 +70,12 @@
 	function stopConfettiInner(){streamingConfetti=false;}
 	function removeConfettiInner(){stopConfetti();particles=[];}
 	function toggleConfettiInner(){
-		if(streamingConfetti)
+		if(streamingConfetti) {
 			stopConfettiInner();
-		else
+		}
+		else {
 			startConfettiInner();
+		}
 	}
 	function drawParticles(context){
 		var particle;
@@ -97,8 +99,9 @@
 		for(var i=0;
 			i<particles.length;i++){
 			particle=particles[i];
-		if(!streamingConfetti&&particle.y<-15)
+		if(!streamingConfetti&&particle.y<-15){
 			particle.y=height+100;
+		}
 		else{
 			particle.tiltAngle+=particle.tiltAngleIncrement;
 			particle.x+=Math.sin(waveAngle);
@@ -106,6 +109,7 @@
 			particle.tilt=Math.sin(particle.tiltAngle)*15;
 		}
 		if(particle.x>width+20||particle.x<-20||particle.y>height){
-			if(streamingConfetti&&particles.length<=maxParticleCount)
+			if(streamingConfetti&&particles.length<=maxParticleCount){
 				resetParticle(particle,width,height);
+			}
 			else{particles.splice(i,1);i--;}}}}})();

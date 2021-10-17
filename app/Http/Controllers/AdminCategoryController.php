@@ -223,6 +223,8 @@
 	    */
 	    public function actionButtonSelected($id_selected,$button_name) {
 	        //Your code here
+	        $id_selected=$id_selected;
+	        $button_name=$button_name;
 	            
 	    }
 
@@ -278,8 +280,9 @@
 	    | @id = last insert id
 	    | 
 	    */
-	    public function hook_after_add($id) {        
+	    public function hook_after_add($id_data) {        
 	        //Your code here
+	        $id_data=$id_data;
 
 	    }
 
@@ -303,8 +306,9 @@
 	    | @id       = current id 
 	    | 
 	    */
-	    public function hook_after_edit($id) {
+	    public function hook_after_edit($id_data) {
 	        //Your code here 
+	        $id_data=$id_data;
 
 	    }
 
@@ -315,8 +319,9 @@
 	    | @id       = current id 
 	    | 
 	    */
-	    public function hook_before_delete($id) {
+	    public function hook_before_delete($id_data) {
 	        //Your code here
+	        $id_data=$id_data;
 
 	    }
 
@@ -327,8 +332,9 @@
 	    | @id       = current id 
 	    | 
 	    */
-	    public function hook_after_delete($id) {
+	    public function hook_after_delete($id_data) {
 	        //Your code here
+	        $id_data=$id_data;
 
 	    }
 
@@ -336,7 +342,7 @@
 
 	    //By the way, you can still create your own method in here... :) 
 
-	    public function getDetail($id) {
+	    public function getDetail($id_data) {
 			//Create an Auth
 			if(!CRUDBooster::isRead() && $this->global_privilege==FALSE || $this->button_edit==FALSE) {    
 			    CRUDBooster::redirect(CRUDBooster::adminPath(),trans("crudbooster.denied_access"));
@@ -347,7 +353,7 @@
 			$data['category'] = DB::table('category')
 								->leftJoin('event', 'event.id', '=', 'category.event_id')
 								->select('category.*', 'event.name as event_name')
-								->where('category.id',$id)
+								->where('category.id',$id_data)
 								->first();
 			$data['winner'] = DB::table('winner')
 								->leftJoin('participant', 'winner.participant_id', '=', 'participant.id')

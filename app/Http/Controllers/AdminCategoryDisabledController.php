@@ -222,6 +222,8 @@
 	    */
 	    public function actionButtonSelected($id_selected,$button_name) {
 	        //Your code here
+	        $id_selected=$id_selected;
+	        $button_name=$button_name;
 	            
 	    }
 
@@ -276,6 +278,7 @@
 	    */
 	    public function hook_after_add($id_data) {        
 	        //Your code here
+	        $id_data=$id_data;
 
 	    }
 
@@ -314,6 +317,7 @@
 	    */
 	    public function hook_before_delete($id_data) {
 	        //Your code here
+	        $id_data=$id_data;
 
 	    }
 
@@ -326,6 +330,7 @@
 	    */
 	    public function hook_after_delete($id_data) {
 	        //Your code here
+	        $id_data=$id_data;
 
 	    }
 

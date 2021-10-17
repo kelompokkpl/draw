@@ -226,14 +226,8 @@
 	    |
 	    */
 	    public function actionButtonSelected($id_selected, $button_name) {
-	        //$id_selected is an array of id 
-			//$button_name is a name that you have set at button_selected 
-			  
-			// if($button_name == 'set_disable') {
-			// 	$part = DB::table('participant')->whereIn('id', $id_selected)->get();
-			// 	dd($part);
-				// DB::table('category_disabled')->whereIn('id',$id_selected)->update(['status'=>'active']);
-			// }
+	    	$id_selected=$id_selected;
+	    	$button_name=$button_name;
 	            
 	    }
 
@@ -279,8 +273,9 @@
 	    | @id = last insert id
 	    | 
 	    */
-	    public function hook_after_add($id) {        
+	    public function hook_after_add($id_data) {        
 	        //Your code here
+	        $id_data=$id_data;
 
 	    }
 
@@ -304,8 +299,9 @@
 	    | @id       = current id 
 	    | 
 	    */
-	    public function hook_after_edit($id) {
+	    public function hook_after_edit($id_data) {
 	        //Your code here 
+	        $id_data=$id_data;
 
 	    }
 
@@ -316,8 +312,9 @@
 	    | @id       = current id 
 	    | 
 	    */
-	    public function hook_before_delete($id) {
+	    public function hook_before_delete($id_data) {
 	        //Your code here
+	        $id_data=$id_data;
 
 	    }
 
@@ -328,8 +325,9 @@
 	    | @id       = current id 
 	    | 
 	    */
-	    public function hook_after_delete($id) {
+	    public function hook_after_delete($id_data) {
 	        //Your code here
+	        $id_data=$id_data;
 
 	    }
 
