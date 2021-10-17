@@ -1,9 +1,9 @@
-var maxParticleCount=80;
-var particleSpeed=1;
-var startConfetti;
-var stopConfetti;
-var toggleConfetti;
-var removeConfetti;
+maxParticleCount=80;
+particleSpeed=1;
+startConfetti;
+stopConfetti;
+toggleConfetti;
+removeConfetti;
 (function(){
 	startConfetti=startConfettiInner;
 	stopConfetti=stopConfettiInner;

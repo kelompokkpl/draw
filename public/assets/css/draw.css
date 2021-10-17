@@ -167,7 +167,8 @@ aside .side-inner .nav-menu ul li.active a::before {
   float: right;
 }
 
-.burger::before, .burger span,
+.burger::before,
+.burger span,
 .burger::after {
   width: 90%;
   height: 2px;
@@ -227,7 +228,7 @@ aside .side-inner .nav-menu ul li.active a::before {
   -moz-transform: rotate(-45deg);
 }
 
-.burger::focus {
+.burger:focus {
   outline: none;
 }
 
