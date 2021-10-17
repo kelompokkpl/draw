@@ -1,29 +1,29 @@
 // Build the chart
-Highcharts.chart('container-pie', {
+Highcharts.chart("container-pie", {
   chart: {
     plotBackgroundColor: null,
     plotBorderWidth: null,
     plotShadow: false,
-    type: 'pie'
+    type: "pie"
   },
   title: {
-    text: ''
+    text: ""
   },
   credits: {
         enabled: false
   },
   tooltip: {
-    pointFormat: '{series.name}: <b>{point.percentage:.2f}%</b> <br>{point.y} events'
+    pointFormat: "{series.name}: <b>{point.percentage:.2f}%</b> <br>{point.y} events"
   },
   accessibility: {
     point: {
-      valueSuffix: '%'
+      valueSuffix: "%"
     }
   },
   plotOptions: {
     pie: {
       allowPointSelect: true,
-      cursor: 'pointer',
+      cursor: "pointer",
       dataLabels: {
         enabled: false
       },
@@ -31,15 +31,15 @@ Highcharts.chart('container-pie', {
     }
   },
   series: [{
-    name: 'Total',
+    name: "Total",
     colorByPoint: true,
     data: [{
-      name: 'Paid',
+      name: "Paid",
       y: payment.paid,
       sliced: true,
       selected: true
     }, {
-      name: 'Unpaid',
+      name: "Unpaid",
       y: payment.unpaid
     }]
   }]
@@ -48,18 +48,18 @@ Highcharts.chart('container-pie', {
 // Create the chart
 
 // Create the chart
-Highcharts.chart('container', {
+Highcharts.chart("container", {
   chart: {
-    type: 'line'
+    type: "line"
   },
   title: {
-    text: 'Event Organizer Activities Per Event'
+    text: "Event Organizer Activities Per Event"
   },
   credits: {
         enabled: false
   },
   subtitle: {
-    text: 'Click the columns to view details.'
+    text: "Click the columns to view details."
   },
   accessibility: {
     announceNewData: {
@@ -67,27 +67,27 @@ Highcharts.chart('container', {
     }
   },
   xAxis: {
-    type: 'category'
+    type: "category"
 
   },
   legend: {
-        layout: 'vertical',
-        align: 'right',
-        verticalAlign: 'middle'
+        layout: "vertical",
+        align: "right",
+        verticalAlign: "middle"
   },
   plotOptions: {
     series: {
       borderWidth: 0,
       dataLabels: {
         enabled: true,
-        format: '{point.y}'
+        format: "{point.y}"
       }
     }
   },
 
   tooltip: {
-    headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-    pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y} activities</b><br/>'
+    headerFormat: "<span style="font-size:11px">{series.name}</span><br>",
+    pointFormat: "<span style="color:{point.color}">{point.name}</span>: <b>{point.y} activities</b><br/>"
   },
 
   series: series,
@@ -101,9 +101,9 @@ Highcharts.chart('container', {
             },
             chartOptions: {
                 legend: {
-                    layout: 'horizontal',
-                    align: 'center',
-                    verticalAlign: 'bottom'
+                    layout: "horizontal",
+                    align: "center",
+                    verticalAlign: "bottom"
                 }
             }
         }]
@@ -111,26 +111,26 @@ Highcharts.chart('container', {
 });
 
 
-Highcharts.chart('sales', {
+Highcharts.chart("sales", {
   chart: {
-    type: 'line'
+    type: "line"
   },
   title: {
-    text: 'Sales Per Month'
+    text: "Sales Per Month"
   },
   credits: {
         enabled: false
   },
   tooltip: {
-    headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-    pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>Rp{point.y}</b><br/>'
+    headerFormat: "<span style="font-size:11px">{series.name}</span><br>",
+    pointFormat: "<span style="color:{point.color}">{point.name}</span>: <b>Rp{point.y}</b><br/>"
   },
   xAxis: {
     categories: month
   },
   yAxis: {
     title: {
-      text: 'Income (Rp)'
+      text: "Income (Rp)"
     }
   },
   plotOptions: {
@@ -142,7 +142,7 @@ Highcharts.chart('sales', {
     }
   },
   series: [{
-    name: 'Income',
+    name: "Income",
     data: total
   }],
   responsive: {

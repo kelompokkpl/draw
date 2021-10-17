@@ -1,19 +1,19 @@
-Highcharts.chart('wordCloud', {
+Highcharts.chart("wordCloud", {
   accessibility: {
     screenReaderSection: {
-      beforeChartFormat: '<h5>{chartTitle}</h5>' +
-        '<div>{chartSubtitle}</div>' +
-        '<div>{chartLongdesc}</div>' +
-        '<div>{viewTableButton}</div>'
+      beforeChartFormat: "<h5>{chartTitle}</h5>" +
+        "<div>{chartSubtitle}</div>" +
+        "<div>{chartLongdesc}</div>" +
+        "<div>{viewTableButton}</div>"
     }
   },
   series: [{
-    type: 'wordcloud',
+    type: "wordcloud",
     data: winners,
-    name: 'Total win'
+    name: "Total win"
   }],
   title: {
-    text: 'Wordcloud of Winners !'
+    text: "Wordcloud of Winners !"
   },
   credits: {
         enabled: false
@@ -25,7 +25,7 @@ var scrollBarWidths = 40;
 
 var widthOfList = function(){
   var itemsWidth = 0;
-  $('.list li').each(function(){
+  $(".list li").each(function(){
     var itemWidth = $(this).outerWidth();
     itemsWidth+=itemWidth;
   });
@@ -33,52 +33,52 @@ var widthOfList = function(){
 };
 
 var widthOfHidden = function(){
-  return (($('.wrapperr').outerWidth())-widthOfList()-getLeftPosi())-scrollBarWidths;
+  return (($(".wrapperr").outerWidth())-widthOfList()-getLeftPosi())-scrollBarWidths;
 };
 
 var getLeftPosi = function(){
-  return $('.list').position().left;
+  return $(".list").position().left;
 };
 
 var reAdjust = function(){
-  if (($('.wrapperr').outerWidth()) < widthOfList()) {
-    $('.scroller-right').show();
+  if (($(".wrapperr").outerWidth()) < widthOfList()) {
+    $(".scroller-right").show();
   }
   else {
-    $('.scroller-right').hide();
+    $(".scroller-right").hide();
   }
   
   if (getLeftPosi()<0) {
-    $('.scroller-left').show();
+    $(".scroller-left").show();
   }
   else {
-    $('.item').animate({left:"-="+getLeftPosi()+"px"},'slow');
-    $('.scroller-left').hide();
+    $(".item").animate({left:"-="+getLeftPosi()+"px"},"slow");
+    $(".scroller-left").hide();
   }
 }
 
 reAdjust();
 
-$(window).on('resize',function(e){  
+$(window).on("resize",function(e){  
     reAdjust();
 });
 
-$('.scroller-right').click(function() {
+$(".scroller-right").click(function() {
   
-  $('.scroller-left').fadeIn('slow');
-  $('.scroller-right').fadeOut('slow');
+  $(".scroller-left").fadeIn("slow");
+  $(".scroller-right").fadeOut("slow");
   
-  $('.list').animate({left:"+="+widthOfHidden()+"px"},'slow',function(){
+  $(".list").animate({left:"+="+widthOfHidden()+"px"},"slow",function(){
 
   });
 });
 
-$('.scroller-left').click(function() {
+$(".scroller-left").click(function() {
   
-  $('.scroller-right').fadeIn('slow');
-  $('.scroller-left').fadeOut('slow');
+  $(".scroller-right").fadeIn("slow");
+  $(".scroller-left").fadeOut("slow");
   
-    $('.list').animate({left:"-="+getLeftPosi()+"px"},'slow',function(){
+    $(".list").animate({left:"-="+getLeftPosi()+"px"},"slow",function(){
     
     });
 });    

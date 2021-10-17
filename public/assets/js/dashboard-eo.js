@@ -1,29 +1,29 @@
 // Build the chart
-Highcharts.chart('container-pie', {
+Highcharts.chart("container-pie", {
   chart: {
     plotBackgroundColor: null,
     plotBorderWidth: null,
     plotShadow: false,
-    type: 'pie'
+    type: "pie"
   },
   title: {
-    text: ''
+    text: ""
   },
   credits: {
         enabled: false
   },
   tooltip: {
-    pointFormat: '{series.name}: <b>{point.percentage:.2f}%</b><br>{point.y} events'
+    pointFormat: "{series.name}: <b>{point.percentage:.2f}%</b><br>{point.y} events"
   },
   accessibility: {
     point: {
-      valueSuffix: '%'
+      valueSuffix: "%"
     }
   },
   plotOptions: {
     pie: {
       allowPointSelect: true,
-      cursor: 'pointer',
+      cursor: "pointer",
       dataLabels: {
         enabled: false
       },
@@ -31,15 +31,15 @@ Highcharts.chart('container-pie', {
     }
   },
   series: [{
-    name: 'Total',
+    name: "Total",
     colorByPoint: true,
     data: [{
-      name: 'Paid',
+      name: "Paid",
       y: payment.paid,
       sliced: true,
       selected: true
     }, {
-      name: 'Unpaid',
+      name: "Unpaid",
       y: payment.unpaid
     }]
   }]
@@ -47,18 +47,18 @@ Highcharts.chart('container-pie', {
 
 
 // Create the chart
-Highcharts.chart('container', {
+Highcharts.chart("container", {
   chart: {
-    type: 'line'
+    type: "line"
   },
   title: {
-    text: 'Event Activities'
+    text: "Event Activities"
   },
   credits: {
         enabled: false
   },
   subtitle: {
-    text: 'Click the point to view details.'
+    text: "Click the point to view details."
   },
   accessibility: {
     announceNewData: {
@@ -67,32 +67,32 @@ Highcharts.chart('container', {
   },
   xAxis: {
     // categories: date,
-    type: 'category'
+    type: "category"
   },
   yAxis: {
     title: {
-      text: 'Total of activity'
+      text: "Total of activity"
     }
 
   },
   legend: {
-        layout: 'vertical',
-        align: 'right',
-        verticalAlign: 'middle'
+        layout: "vertical",
+        align: "right",
+        verticalAlign: "middle"
   },
   plotOptions: {
     series: {
       borderWidth: 0,
       dataLabels: {
         enabled: true,
-        format: '{point.y}'
+        format: "{point.y}"
       }
     }
   },
 
   tooltip: {
-    headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-    pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y} activities</b><br/>'
+    headerFormat: "<span style="font-size:11px">{series.name}</span><br>",
+    pointFormat: "<span style="color:{point.color}">{point.name}</span>: <b>{point.y} activities</b><br/>"
   },
 
   series: series,
@@ -106,9 +106,9 @@ Highcharts.chart('container', {
             },
             chartOptions: {
                 legend: {
-                    layout: 'horizontal',
-                    align: 'center',
-                    verticalAlign: 'bottom'
+                    layout: "horizontal",
+                    align: "center",
+                    verticalAlign: "bottom"
                 }
             }
         }]

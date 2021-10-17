@@ -1,35 +1,35 @@
 new Vue({
-	el: '#root',
+	el: "#root",
 	data: {
-		event_selected: '',
+		event_selected: "",
 		events: [],
 		row: {
-			id: '',
-			name: '',
-			created_at: '',
-			status: '',
-			date_start: '',
-			date_end: ''
+			id: "",
+			name: "",
+			created_at: "",
+			status: "",
+			date_start: "",
+			date_end: ""
 		},
 
 		categories: [],
 		category: {
-			name: '',
-			is_draw: '',
-			total_winner: ''
+			name: "",
+			is_draw: "",
+			total_winner: ""
 		},
 
 		details: [],
 		detail: {
-			event_id: '',
-			event_name: '',
+			event_id: "",
+			event_name: "",
 			winners: []
 		},
 		winner: {
-			id: '',
-			name: '',
-			phone: '',
-			email: ''
+			id: "",
+			name: "",
+			phone: "",
+			email: ""
 		}
 	},
 	created() { 

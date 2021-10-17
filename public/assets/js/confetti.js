@@ -10,7 +10,7 @@
 	stopConfetti=stopConfettiInner;
 	toggleConfetti=toggleConfettiInner;
 	removeConfetti=removeConfettiInner;
-	
+
 	var colors=["DodgerBlue","OliveDrab","Gold","Pink","SlateBlue","LightBlue","Violet","PaleGreen","SteelBlue","SandyBrown","Chocolate","Crimson"]
 	var streamingConfetti=false;
 	var animationTimer=null;
@@ -56,8 +56,9 @@
 			if(animationTimer===null){
 				(function runAnimation(){
 					context.clearRect(0,0,window.innerWidth,window.innerHeight);
-					if(particles.length===0)
+					if(particles.length===0){
 						animationTimer=null;
+					}
 					else{
 						updateParticles();
 						drawParticles(context);
