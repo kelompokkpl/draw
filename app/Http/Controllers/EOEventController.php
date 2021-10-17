@@ -224,15 +224,16 @@ class EOEventController extends Controller
                     ]);
                     if($validated){
                         $data['button_image'] = Str::random(10).'.'.$request->file('button_image')->getClientOriginalExtension();
+                        
                         $request->file('button_image')->move(public_path($btn_path), $data['button_image']);
                     }
                 }
 
-                $data['global_text_color'] = $request->input('global_text_color');
                 $data['hr_color'] = $request->input('hr_color');
                 $data['button_background_color'] = $request->input('button_background_color');
-                $data['button_text_color'] = $request->input('button_text_color');
+                $data['global_text_color'] = $request->input('global_text_color');
                 $data['button_border_color'] = $request->input('button_border_color');
+                $data['button_text_color'] = $request->input('button_text_color');
                 $data['button_shadow_color'] = $request->input('button_shadow_color');
 
                 DB::table('event')->where('id', $id_data)->update($data);
