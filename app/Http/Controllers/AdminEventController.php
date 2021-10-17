@@ -238,12 +238,12 @@
 	        
 	    }
 
-	    public function getSetStatus($status,$id) {
-			DB::table('event')->where('id',$id)->update(['status'=>$status]);
+	    public function getSetStatus($status,$id_data) {
+			DB::table('event')->where('id',$id_data)->update(['status'=>$status]);
 
 			if($status == 'Active'){
 				//Handle notification to EO page
-				$data = DB::table('event')->where('id', $id)->select('event.name', 'event.cms_users_id')->first();
+				$data = DB::table('event')->where('id', $id_data)->select('event.name', 'event.cms_users_id')->first();
 		        $config['content'] = "Hooray! Event '".ucfirst($data->name)."' has been activated!";
 				$config['to'] = URL::to('eo/event');
 				$config['id_cms_users'] = [$data->cms_users_id]; //This is an array of id users
@@ -263,6 +263,8 @@
 	    |
 	    */
 	    public function actionButtonSelected($id_selected,$button_name) {
+	    	$id_selected=$id_selected;
+	    	$button_name=$button_name;
 
 	    }
 
@@ -322,7 +324,7 @@
 	        if($event == null){
 	            $code .= '0001';
 	        } else{
-	            $code .= str_pad(intval(substr($event->code_invoice, 7))+1, 4, '0', STR_PAD_LEFT);
+	            $code .= str_pad((int)substr($event->code_invoice, 7)+1, 4, '0', STR_PAD_LEFT);
 	        }
 
 	        $postdata['status'] = 'Non Active';
@@ -337,8 +339,8 @@
 	    | @id = last insert id
 	    | 
 	    */
-	    public function hook_after_add($id) {        
-	        //Your code here
+	    public function hook_after_add($id_data) {
+	    	$id_data=$id_data;
 
 	    }
 
@@ -376,6 +378,7 @@
 	    */
 	    public function hook_before_delete($id_data) {
 	        //Your code here
+	        $id_data=$id_data;
 
 	    }
 
@@ -388,6 +391,7 @@
 	    */
 	    public function hook_after_delete($id_data) {
 	        //Your code here
+	        $id_data=$id_data;
 
 	    }
 
@@ -395,19 +399,19 @@
 
 	    //By the way, you can still create your own method in here... :) 
 
-	    public function preferences($id) {
+	    public function preferences($id_data) {
 	    	if(!CRUDBooster::isCreate() && $this->global_privilege==FALSE) {    
 			    CRUDBooster::redirect(CRUDBooster::adminPath(),trans("crudbooster.denied_access"));
 			}
 
 	    	$data = [];
-	    	$data['event'] = DB::table('event')->where('id', $id)->first();
+	    	$data['event'] = DB::table('event')->where('id', $id_data)->first();
 	    	$data['page_title'] = ucfirst($data['event']->name);
 
 	    	return view('superadmin.preferences', $data);
 	    }
 
-	    public function savePreferences(Request $request, $id) {
+	    public function savePreferences(Request $request, $id_data) {
 	    	$validated = $request->validate([
                 'background_new_draw' => 'mimes:jpg,jpeg,png,bmp',
                 'background_recent_draw' => 'mimes:jpg,jpeg,png,bmp',
@@ -449,7 +453,7 @@
 				$data['button_border_color'] = $request->input('button_border_color');
 				$data['button_shadow_color'] = $request->input('button_shadow_color');
 
-				DB::table('event')->where('id', $id)->update($data);
+				DB::table('event')->where('id', $id_data)->update($data);
 				CRUDBooster::redirect(URL::previous(),"The event preferences has been updated !","info");	
             }
 	    }
