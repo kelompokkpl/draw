@@ -25,7 +25,7 @@ html {
 }
 
 body {
-  font-family: Montserrat;
+  font-family: Montserrat, sans-serif;
   font-size: 0.75rem;
   margin: 0;
   text-align: left;
@@ -140,7 +140,7 @@ aside .side-inner .nav-menu ul li a:hover {
   outline: none;
 }
 
-aside .side-inner .nav-menu ul li a::hover {
+aside .side-inner .nav-menu ul li a:hover {
   background: #2740ce;
   color: #fff;
 }
@@ -349,7 +349,7 @@ h6,
   border-bottom: 1px solid #fff;
   color: #fff;
   font-size: 1rem;
-  font-family: MontserratBold;
+  font-family: MontserratBold, sans-serif;
   width: 100%;
   padding: 5px 0;
   white-space: inherit;
@@ -377,7 +377,7 @@ select.draw-select option:hover {
 }
 
 .text-lato-thin {
-  font-family: LatoThin;
+  font-family: LatoThin, sans-serif;
 }
 
 /* Button */
@@ -387,7 +387,7 @@ select.draw-select option:hover {
   color: #fff;
   text-transform: uppercase;
   font-size: 0.7rem;
-  font-family: MontserratBold;
+  font-family: MontserratBold, sans-serif;
   padding: 0.4rem 0.9rem;
   border: none;
   outline: none;
@@ -431,7 +431,7 @@ select.draw-select option:hover {
     margin-top: 12% !important;
   }
 
-  .wrap-container ul li::last-of-type {
+  .wrap-container ul li:last-of-type {
     margin-bottom: 31.5% !important;
   }
 }
@@ -519,7 +519,7 @@ select.draw-select option:hover {
   0% {
     transform: translateX(5%);
   }
-  
+
   100% {
     transform: translateX(0);
   }

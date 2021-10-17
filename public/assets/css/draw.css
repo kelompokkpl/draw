@@ -129,15 +129,15 @@ aside .side-inner .nav-menu ul li a::before {
   transition: 0.3s opacity ease, 0.3s visibility ease, 0.3s width ease;
 }
 
+aside .side-inner .nav-menu ul li a::hover {
+  background: #2740ce;
+  color: #fff;
+}
+
 aside .side-inner .nav-menu ul li a:hover,
 aside .side-inner .nav-menu ul li a:active,
 aside .side-inner .nav-menu ul li a:focus {
   outline: none;
-}
-
-aside .side-inner .nav-menu ul li a::hover {
-  background: #2740ce;
-  color: #fff;
 }
 
 aside .side-inner .nav-menu ul li a:hover:before {
@@ -274,7 +274,7 @@ aside .side-inner .nav-menu ul li.active a::before {
   transition: 0.3s all ease-in-out;
 }
 
-.draw::hover {
+.draw:hover {
   transform: scale(0.92);
 }
 
