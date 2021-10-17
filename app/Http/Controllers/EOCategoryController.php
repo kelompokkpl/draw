@@ -61,7 +61,7 @@ class EOCategoryController extends Controller
     {
         unset($request['_token']);
         $request['created_at'] = date('Y-m-d H:i:s');
-        $insert = DB::table('category')->insert($request->all());
+        DB::table('category')->insert($request->all());
 
         $can_draw = DB::table('category')
             ->where('event_id', Session::get('event_id'))

@@ -20,7 +20,7 @@ html {
 }
 
 body {
-  font-family: Montserrat;
+  font-family: Montserrat, sans-serif;;
   font-size: 0.75rem;
   margin: 0;
   text-align: left;
@@ -287,7 +287,7 @@ h4,
 h5,
 h6,
 .bold {
-  font-family: MontserratBold;
+  font-family: MontserratBold, sans-serif;;
 }
 
 /* Aspect Ratio */
