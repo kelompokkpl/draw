@@ -88,7 +88,7 @@ class EOEventController extends Controller
             if($event == null){
                 $code .= '0001';
             } else{
-                $code .= str_pad(intval(substr($event->code_invoice, 7))+1, 4, '0', STR_PAD_LEFT);
+                $code .= str_pad((int)substr($event->code_invoice, 7)+1, 4, '0', STR_PAD_LEFT);
             }
             
             unset($request['_token']);
