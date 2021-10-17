@@ -1,22 +1,22 @@
 new Vue({
-	el: '#root',
+	el: "#root",
 	data: {
-		event_selected: '',
-		category_selected: '',
+		event_selected: "",
+		category_selected: "",
 		categories: [],
 		category: {
-			id: '',
-			name: ''
+			id: "",
+			name: ""
 		},
 
 		participants: [],
 		participant: {
-			participant_id: '',
-			name: '',
-			email: '',
-			phone: '',
-			event_id: '',
-			event_name: ''
+			participant_id: "",
+			name: "",
+			email: "",
+			phone: "",
+			event_id: "",
+			event_name: ""
 		},
 	},
 	created() { 
@@ -28,21 +28,20 @@ new Vue({
 	},
 	methods: {
 		eventOnChange() {
-			console.log(basepath);
 			axios.get(basepath+"/category_by_event/"+this.event_selected)
 				.then(response => (this.categories = response.data));
 				// this.category_selected = this.categories[0].id;
-				this.participants = '';
+				this.participants = "";
 		},
 
 		categoryOnChange() {
 			switch(page){
-				case 'category_disabled':
-					axios.get(basepath+"/participant_by_event_category/"+this.event_selected+'/'+this.category_selected)
+				case "category_disabled":
+					axios.get(basepath+"/participant_by_event_category/"+this.event_selected+"/"+this.category_selected)
 						.then(response => (this.participants = response.data));
 					break;
-				case 'winner':
-					axios.get(basepath+"/winner_by_event_category/"+this.event_selected+'/'+this.category_selected)
+				case "winner":
+					axios.get(basepath+"/winner_by_event_category/"+this.event_selected+"/"+this.category_selected)
 						.then(response => (this.participants = response.data));
 					break;
 			}

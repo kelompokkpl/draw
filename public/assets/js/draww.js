@@ -48,10 +48,7 @@ function start(){
 		for (let i = 0; i < countParticipant; i++) {
 			if(i%4===0){
 				l = l+1;
-			}
-			if(i%2!==0 && l%2===1){
-				Console.log(i+" "+l+"showEvenn")
-			} 		
+			}	
 		}
 	}, 800);
 	
@@ -171,7 +168,6 @@ function start(){
 			}
 			if(i%2===0 && j%2===1){
 				randomParticipant(i);
-				Console.log(i+" "+j+"showEven400");
 			} 		
 		}
 	}, 400);
